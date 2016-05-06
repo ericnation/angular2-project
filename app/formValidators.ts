@@ -1,14 +1,6 @@
 import {Control} from 'angular2/common';
 
 export class generalFormValidators {
-  static cannotContainSpace(control: Control){
-    if (control.value.indexOf(' ') >= 0)
-
-      return {cannotContainSpace: true};
-
-    return null;
-
-  }
 
   static email(control: Control) {
     var regEx = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;

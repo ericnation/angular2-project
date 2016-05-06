@@ -4,13 +4,16 @@ import {NavBarComponent} from './navbar.component';
 import {UsersComponent} from './users.component';
 import {PostsComponent} from './posts.component';
 import {HomeComponent} from "./home.component";
-import {NewUserComponent} from "./newuser.component";
+import {UserFormComponent} from "./user-form.component";
+import {NotFoundComponent} from "./not-found.component";
 
 @RouteConfig([
   { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
   { path: '/users', name: 'Users', component: UsersComponent },
-  { path: '/users/new', name: 'NewUser', component: NewUserComponent },
+  { path: '/users/:id', name: 'EditUser', component: UserFormComponent },
+  { path: '/users/new', name: 'NewUser', component: UserFormComponent },
   { path: '/posts', name: 'Posts', component: PostsComponent },
+  { path: '/not-found', name: 'NotFound', component: NotFoundComponent},
   { path: '/*other', name: 'Other', redirectTo: ['Home']}
 ])
 
@@ -23,7 +26,7 @@ import {NewUserComponent} from "./newuser.component";
     </div>
     
   `,
-  directives: [ROUTER_DIRECTIVES, NavBarComponent, UsersComponent, PostsComponent]
+  directives: [ROUTER_DIRECTIVES, NavBarComponent, UsersComponent, PostsComponent,UserFormComponent]
 })
 
 export class AppComponent {

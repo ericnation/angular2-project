@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component, OnInit} from "angular2/core";
 import {UsersService} from './users.service';
 import {RouterLink} from 'angular2/router';
 
@@ -26,7 +26,7 @@ import {RouterLink} from 'angular2/router';
             <tr *ngFor="#user of users">
               <td>{{user.name}}</td>
               <td>{{user.email}}</td>
-              <td><a href="" class="edit-link"><i class="fa fa-edit"></i> </a></td>
+              <td><a [routerLink]="['EditUser', {id: user.id}]" class="edit-link"><i class="fa fa-edit"></i> </a></td>
               <td><a href="" class="remove-link"><i class="fa fa-remove"></i> </a></td>
             </tr>
           </table>
@@ -43,15 +43,15 @@ export class UsersComponent implements OnInit{
   isLoading = true;
   users: any[];
 
-  constructor(private _usersService: UsersService) {
+  constructor(private _service: UsersService) {
 
   }
 
   ngOnInit(){
-    this._usersService.getUsers()
-        .subscribe(users => {
-          this.isLoading = false;
-          this.users = users;
-        });
+    this._service.getUsers()
+      .subscribe(users => {
+        this.isLoading = false;
+        this.users = users;
+      });
   }
 }
