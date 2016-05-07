@@ -40,7 +40,7 @@ System.register(["angular2/core", './users.service', 'angular2/router'], functio
                 UsersComponent = __decorate([
                     core_1.Component({
                         selector: 'users',
-                        template: "\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"loader-wrapper\" *ngIf=\"isLoading\">\n            <span class=\"loader\">\n              <i class=\"fa fa-spin fa-spinner fa-3x\"></i>\n            </span>\n          </div>\n          \n          <h1>Users</h1>\n          <a [routerLink]=\"['NewUser']\" class=\"btn btn-primary new-user-btn\">Add User</a>\n          <table class=\"table table-bordered table-striped\">\n            <tr>\n              <th>Name</th>\n              <th>Email</th>\n              <th>Edit</th>\n              <th>Delete</th>\n            </tr>\n            <tr *ngFor=\"#user of users\">\n              <td>{{user.name}}</td>\n              <td>{{user.email}}</td>\n              <td><a [routerLink]=\"['EditUser', {id: user.id}]\" class=\"edit-link\"><i class=\"fa fa-edit\"></i> </a></td>\n              <td><a href=\"\" class=\"remove-link\"><i class=\"fa fa-remove\"></i> </a></td>\n            </tr>\n          </table>\n        </div>\n      </div>\n    </div>\n  ",
+                        templateUrl: 'app/users.component.html',
                         providers: [users_service_1.UsersService],
                         directives: [router_1.RouterLink]
                     }), 

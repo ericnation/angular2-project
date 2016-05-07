@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="loader-wrapper" *ngIf="isLoading">
+            <span class="loader">
+              <i class="fa fa-spin fa-spinner fa-3x"></i>
+            </span>
+      </div>
+
+      <h1>Users</h1>
+      <a [routerLink]="['NewUser']" class="btn btn-primary new-user-btn">Add User</a>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        <tr *ngFor="#user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td><a [routerLink]="['EditUser', {id: user.id}]" class="edit-link"><i class="fa fa-edit"></i> </a></td>
+          <td><a href="" class="remove-link"><i class="fa fa-remove"></i> </a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
