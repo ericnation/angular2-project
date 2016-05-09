@@ -40,7 +40,7 @@ System.register(["angular2/http", "angular2/core", 'rxjs/add/operator/map'], fun
                         .map(function (res) { return res.json(); });
                 };
                 UsersService.prototype.updateUser = function (user) {
-                    return this._http.post(this.getUserUrl(user.id), JSON.stringify(user))
+                    return this._http.put(this.getUserUrl(user.id), JSON.stringify(user))
                         .map(function (res) { return res.json(); });
                 };
                 UsersService.prototype.getUserUrl = function (userId) {
