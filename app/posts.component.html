@@ -3,7 +3,10 @@
     <spinner [visible]="postsLoading"></spinner>
     <h1>Posts</h1>
     <div class="col-md-6">
-
+      <select name="" id="" class="form-control" (change)="reloadPosts({userId: u.value})" #u>
+        <option value="">Select a user...</option>
+        <option value="{{user.id}}" *ngFor="#user of users">{{user.name}}</option>
+      </select>
       <ul class="list-group">
         <li class="list-group-item"
             *ngFor="#post of posts"
