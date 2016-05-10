@@ -1,11 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="loader-wrapper" *ngIf="isLoading">
-            <span class="loader">
-              <i class="fa fa-spin fa-spinner fa-3x"></i>
-            </span>
-      </div>
+     <spinner [visible]="isLoading"></spinner>
 
       <h1>Users</h1>
       <a [routerLink]="['NewUser']" class="btn btn-primary new-user-btn">Add User</a>

@@ -42,3 +42,19 @@
 .ng-touched.ng-invalid {
   border: 1px solid #ff1521;
 }
+
+.list-group-item {
+  cursor: pointer;
+  transition: all .1s linear;
+  
+  a:hover {
+    text-decoration: none;
+  }
+}
+.list-group-item:hover {
+  background: #eaeaea;
+}
+
+.thumbnail {
+  border-radius: 50%;
+}

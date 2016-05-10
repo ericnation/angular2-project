@@ -6,17 +6,14 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
-}
-.loader-wrapper .loader {
-  align-content: center;
-  justify-content: center;
-  margin: auto;
-  text-align: center;
-}
-.loader-wrapper .fa-spin {
-  color: #fff;
-}
+  z-index: 1000; }
+  .loader-wrapper .loader {
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center; }
+  .loader-wrapper .fa-spin {
+    color: #fff; }
 
 .centered {
   bottom: 0;
@@ -24,21 +21,29 @@
   margin: 0;
   position: absolute;
   right: 0;
-  top: 0;
-}
+  top: 0; }
 
 .new-user-btn {
-  margin: 10px 0;
-}
+  margin: 10px 0; }
 
 .form-background {
   background: #ecf1f9;
   border-radius: 5px;
-  padding: 25px;
-}
+  padding: 25px; }
 
 .ng-touched.ng-invalid {
-  border: 1px solid #ff1521;
-}
+  border: 1px solid #ff1521; }
+
+.list-group-item {
+  cursor: pointer;
+  transition: all .1s linear; }
+  .list-group-item a:hover {
+    text-decoration: none; }
+
+.list-group-item:hover {
+  background: #eaeaea; }
+
+.thumbnail {
+  border-radius: 50%; }
 
 /*# sourceMappingURL=app.css.map */
