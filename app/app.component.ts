@@ -1,10 +1,10 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
 import {NavBarComponent} from './navbar.component';
-import {UsersComponent} from './users.component';
-import {PostsComponent} from './posts.component';
+import {UsersComponent} from './users/users.component.ts';
+import {PostsComponent} from './posts/posts.component.ts';
 import {HomeComponent} from "./home.component";
-import {UserFormComponent} from "./user-form.component";
+import {UserFormComponent} from "./users/user-form.component.ts";
 import {NotFoundComponent} from "./not-found.component";
 
 @RouteConfig([

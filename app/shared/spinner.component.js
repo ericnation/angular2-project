@@ -6,16 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("angular2/core");
-var HomeComponent = (function () {
-    function HomeComponent() {
+var SpinnerComponent = (function () {
+    function SpinnerComponent() {
+        this.visible = true;
     }
-    HomeComponent = __decorate([
+    __decorate([
+        core_1.Input()
+    ], SpinnerComponent.prototype, "visible");
+    SpinnerComponent = __decorate([
         core_1.Component({
-            selector: 'home',
-            template: "\n    <h1>Home</h1>\n  "
+            selector: 'spinner',
+            template: "\n    <div class=\"loader-wrapper\" *ngIf=\"visible\">\n      <span class=\"loader\">\n        <i class=\"fa fa-spin fa-spinner fa-3x\"></i>\n      </span>\n    </div>\n  "
         })
-    ], HomeComponent);
-    return HomeComponent;
+    ], SpinnerComponent);
+    return SpinnerComponent;
 }());
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+exports.SpinnerComponent = SpinnerComponent;
+//# sourceMappingURL=spinner.component.js.map

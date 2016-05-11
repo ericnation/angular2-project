@@ -6,10 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("angular2/core");
-var post_service_1 = require("./post.service");
-var spinner_component_1 = require("./spinner.component");
-var users_service_1 = require("./users.service");
-var pagination_component_1 = require("./pagination.component");
+var post_service_ts_1 = require("./post.service.ts");
+var spinner_component_ts_1 = require("./../shared/spinner.component.ts");
+var users_service_ts_1 = require("./../users/users.service.ts");
+var pagination_component_ts_1 = require("./../shared/pagination.component.ts");
 var PostsComponent = (function () {
     function PostsComponent(_postService, _userService) {
         this._postService = _postService;
@@ -57,9 +57,9 @@ var PostsComponent = (function () {
     };
     PostsComponent = __decorate([
         core_1.Component({
-            templateUrl: 'app/posts.component.html',
-            providers: [post_service_1.PostService, users_service_1.UsersService],
-            directives: [spinner_component_1.SpinnerComponent, pagination_component_1.PaginationComponent]
+            templateUrl: 'posts.component.html',
+            providers: [post_service_ts_1.PostService, users_service_ts_1.UsersService],
+            directives: [spinner_component_ts_1.SpinnerComponent, pagination_component_ts_1.PaginationComponent]
         })
     ], PostsComponent);
     return PostsComponent;

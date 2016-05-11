@@ -1,13 +1,13 @@
 import {Component, OnInit} from "angular2/core";
 import {Validators, ControlGroup, FormBuilder} from "angular2/common";
-import {generalFormValidators} from "./formValidators";
+import {generalFormValidators} from "./../shared/formValidators";
 import {CanDeactivate, Router, RouteParams} from "angular2/router";
-import {UsersService} from './users.service';
+import {UsersService} from './users.service.ts';
 import {User} from './user';
 
 @Component({
   selector: 'user-form',
-  templateUrl: 'app/user-form.component.html',
+  templateUrl: 'user-form.component.html',
   providers: [UsersService]
 })
 
