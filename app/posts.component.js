@@ -9,13 +9,15 @@ var core_1 = require("angular2/core");
 var post_service_1 = require("./post.service");
 var spinner_component_1 = require("./spinner.component");
 var users_service_1 = require("./users.service");
+var pagination_component_1 = require("./pagination.component");
 var PostsComponent = (function () {
     function PostsComponent(_postService, _userService) {
         this._postService = _postService;
         this._userService = _userService;
         this.posts = [];
         this.users = [];
-        this.currentPost = null;
+        this.pagedPosts = [];
+        this.pageSize = 10;
     }
     PostsComponent.prototype.ngOnInit = function () {
         this.loadUsers();
@@ -26,9 +28,9 @@ var PostsComponent = (function () {
         this.postsLoading = true;
         this._postService.getPosts(filter)
             .subscribe(function (posts) {
-            _this.postsLoading = false;
             _this.posts = posts;
-        });
+            _this.pagedPosts = _.take(_this.posts, _this.pageSize);
+        }, null, function () { _this.postsLoading = false; });
     };
     PostsComponent.prototype.loadUsers = function () {
         var _this = this;
@@ -49,11 +51,15 @@ var PostsComponent = (function () {
             _this.currentPost.comments = comments;
         });
     };
+    PostsComponent.prototype.onPageChanged = function (page) {
+        var startIndex = (page - 1) * this.pageSize;
+        this.pagedPosts = _.take(_.rest(this.posts, startIndex), this.pageSize);
+    };
     PostsComponent = __decorate([
         core_1.Component({
             templateUrl: 'app/posts.component.html',
             providers: [post_service_1.PostService, users_service_1.UsersService],
-            directives: [spinner_component_1.SpinnerComponent]
+            directives: [spinner_component_1.SpinnerComponent, pagination_component_1.PaginationComponent]
         })
     ], PostsComponent);
     return PostsComponent;

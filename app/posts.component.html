@@ -7,13 +7,14 @@
         <option value="">Select a user...</option>
         <option value="{{user.id}}" *ngFor="#user of users">{{user.name}}</option>
       </select>
+      <pagination [items]="posts" (page-changed)="onPageChanged($event)"></pagination>
       <ul class="list-group">
         <li class="list-group-item"
-            *ngFor="#post of posts"
+            *ngFor="#post of pagedPosts"
             [class.active]="currentPost == post"
             (click)="select(post)"
             >
-          <a href="" title="Post Title">{{post.title}}</a>
+          {{post.title}}
         </li>
       </ul>
     </div>

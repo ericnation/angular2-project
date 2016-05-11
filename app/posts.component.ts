@@ -2,19 +2,22 @@ import {Component, OnInit} from "angular2/core";
 import {PostService} from "./post.service";
 import {SpinnerComponent} from "./spinner.component";
 import {UsersService} from "./users.service";
+import {PaginationComponent} from "./pagination.component";
 
 @Component({
   templateUrl: 'app/posts.component.html',
   providers: [PostService, UsersService],
-  directives: [SpinnerComponent]
+  directives: [SpinnerComponent, PaginationComponent]
 })
 
 export class PostsComponent implements OnInit {
   posts = [];
   users = [];
+  pagedPosts = [];
   postsLoading;
   commentsLoading;
-  currentPost = null;
+  currentPost;
+  pageSize = 10;
 
   constructor(
       private _postService: PostService,
@@ -33,9 +36,12 @@ export class PostsComponent implements OnInit {
     this.postsLoading = true;
     this._postService.getPosts(filter)
         .subscribe(posts => {
-          this.postsLoading = false;
           this.posts = posts;
-        });
+          this.pagedPosts = _.take(this.posts, this.pageSize);
+
+        },
+        null,
+            () => { this.postsLoading = false; });
   }
 
   private loadUsers() {
@@ -59,4 +65,11 @@ export class PostsComponent implements OnInit {
           this.currentPost.comments = comments;
         })
   }
+
+  onPageChanged(page) {
+    var startIndex = (page - 1) * this.pageSize;
+    this.pagedPosts = _.take(_.rest(this.posts, startIndex), this.pageSize);
+  }
+
+
 }

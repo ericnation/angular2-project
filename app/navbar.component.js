@@ -25,8 +25,9 @@ System.register(["angular2/core", 'angular2/router'], function(exports_1, contex
                 function NavBarComponent(_router) {
                     this._router = _router;
                 }
-                NavBarComponent.prototype.isActive = function (instruction) {
-                    return this._router.isRouteActive(this._router.generate(instruction));
+                NavBarComponent.prototype.isActive = function (route) {
+                    var instruction = this._router.generate(route);
+                    return this._router.isRouteActive(instruction);
                 };
                 NavBarComponent = __decorate([
                     core_1.Component({
